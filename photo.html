@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fun Camera</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/zajimFilters.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="bg"></div>
+
+    <div id="wrapper">
+        <div id="Hd">
+            <h2>Fun Camera</h2>
+        </div>
+
+        <p>Your original image.</p>
+        <div id="miCamara">
+            <img style="z-index: 10;" id="original-image" />
+            <canvas style="z-index: 10;" id="filtered-image" />
+        </div>
+        <div class="box">
+            <select id="filter-changer">
+                <option value="none">None</option>
+                <option value="light">Light</option>
+                <option value="pixelade">Pixelade</option>
+                <option value="bigGaussian">BigGaussian</option>
+                <option value="gaussian">Gaussian</option>
+                <option value="grayscale">Grayscale</option>
+                <option value="highpass">highpass</option>
+                <option value="lowpass5">lowpass3</option>
+                <option value="lowpass5">lowpass5</option>
+                <option value="mirror">mirror</option>
+                <option value="invert">invert</option>
+                <option value="laplacian">laplacian</option>
+                <option value="prewittHorizontal">Prewitt Horizontal</option>
+                <option value="prewittVertical">Prewitt Vertical</option>
+                <option value="roberts">roberts</option>
+                <option value="saturation">saturation</option>
+                <option value="sepia">sepia</option>
+                <option value="sharpen">sharpen</option>
+                <option value="sobelHorizontal">sobel Horizontal</option>
+                <option value="sobelVertical">sobel Vertical</option>
+                <option value="thresholding">thresholding</option>
+              </select>
+        </div>
+
+        <input type="file" id="imageLoader" />
+        <label for="filter-changer">Select a filter to apply</label>
+
+        <button id="btn_Camera" class="btn_Perso" onclick="sendToCamera()">Back To WebCam </button>
+        <button id="btn_Download" class="btn_Perso" onclick="downloadImage()">Download Photo</button>
+    </div>
+
+
+
+    <script>
+        var bgPattern = document.getElementById("bg")
+        window.addEventListener("scroll", function() {
+            bgPattern.style.backgroundPosition = +window.pageYOffset + "px";
+        });
+    </script>
+    <script>
+        var imageLoader = document.getElementById('imageLoader');
+        var originalImage = document.getElementById("original-image");
+        var filteredImageCanvas = document.getElementById("filtered-image");
+        var filterChanger = document.getElementById("filter-changer");
+        var imageUploaded = false;
+
+        // Handle image upload into img tag
+        imageLoader.addEventListener('change', function(e) {
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                originalImage.onload = function() {
+                    console.log("Image Succesfully Loaded");
+                    imageUploaded = true;
+                };
+                originalImage.src = event.target.result;
+            };
+
+            reader.readAsDataURL(e.target.files[0]);
+        }, false);
+
+        filterChanger.addEventListener("change", function(e) {
+            var filter = filterChanger.value;
+
+            if (imageUploaded && filter != "none") {
+
+                // Apply filter
+                ZajimJS.filterImage(filteredImageCanvas, ZajimJS[filter], originalImage);
+            }
+        }, false);
+
+        canvas = document.getElementById("filtered-image");
+
+        function downloadImage() {
+            // Crear un elemento <a>
+            let enlace = document.createElement('a');
+            // El titulo
+            enlace.download = "myPhoto.png";
+            // Convertir la imagen a Base64 y ponerlo en el enlace
+            enlace.href = canvas.toDataURL();
+            // Hacer click en el
+            enlace.click();
+        }
+
+        function sendToCamera() {
+            location.href = "video.html";
+        }
+    </script>
+</body>
+
+</html>

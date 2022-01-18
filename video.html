@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fun Camera</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/filter00.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clmtrackr@1.1.2/build/clmtrackr.min.js"></script>
+</head>
+
+<body>
+    <div id="bg"></div>
+
+    <div id="wrapper">
+        <div id="Hd">
+            <h2>Fun Camera</h2>
+        </div>
+
+        <p>Your Camera.</p>
+        <div id="miCamara">
+
+        </div>
+        <div class="box">
+            <select id="filtrosDisponibles">
+              <option value="-1">Select Filter</option>
+              <option value="0">Detection Square</option>
+              <option value="1">Dog Filter</option>
+              <option value="2">Gray</option>
+              <option value="3">Black/White</option>
+              <option value="4">Opaque</option>
+              <option value="5">Ruido</option>
+              <option value="6">Dilate</option>
+              <option value="7">Blur</option>
+              <option value="8">Erode</option>
+              <option value="9">Invert</option>
+              <option value="10">Experimental</option>
+            </select>
+        </div>
+
+        <button id="btn_Save" class="btn_Perso" onclick="saveImages()">Cheeseeeeeeeee!</button>
+        <button id="btn_Camera" class="btn_Perso" onclick="pauseCamera()">Camera:ON </button>
+        <button id="btn_Upload" class="btn_Perso" onclick="uploadPhoto()">Upload Photo</button>
+    </div>
+
+
+
+    <script>
+        var bgPattern = document.getElementById("bg")
+        window.addEventListener("scroll", function() {
+            bgPattern.style.backgroundPosition = +window.pageYOffset + "px";
+        });
+    </script>
+
+</body>
+
+</html>
