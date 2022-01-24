@@ -44,9 +44,7 @@
 
 [![Product Name Screen Shot][screenshot]](https://github.com/Deathmajorasmask/Fun-Camera)
 
-It is a web of photo filters with face detection capable of creating creative images without losing 
-
-quality in your photos.
+It is a web of photo filters with face detection capable of creating creative images without losing quality in your photos.
 
 The website allows you to upload photos from your computer or use the webcam to use a real-time filter.
 
@@ -88,9 +86,7 @@ You will have to download.
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Deathmajorasmask/Fun-Camera/issues) for a list of proposed 
-
-features (and known issues).
+See the [open issues](https://github.com/Deathmajorasmask/Fun-Camera/issues) for a list of proposed features (and known issues).
 
 
 
