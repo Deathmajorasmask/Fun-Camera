@@ -115,9 +115,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Deathmajorasmask - zijaham_link@hotmail.com
 
-Project Link: [https://github.com/Deathmajorasmask/Fun-Camera]
-
-(https://github.com/Deathmajorasmask/Fun-Camera)
+Project Link: [https://github.com/Deathmajorasmask/Fun-Camera](https://github.com/Deathmajorasmask/Fun-Camera)
 
 
 
